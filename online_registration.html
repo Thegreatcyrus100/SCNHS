@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Enrollment | Santa Cruz National High School</title>
+    <link rel="icon" href="image/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="static/shs_main.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #15154E;
+            --primary-light: #1e1e7a;
+            --text: #1a1a2e;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --success: #16a34a;
+            --error: #dc2626;
+            --radius: 10px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding-top: 52px; }
+
+        /* .top-nav removed — replaced by unified #navbar */
+
+        .top-nav img { height: 44px; cursor: pointer; }
+        .top-nav a { color: white; text-decoration: none; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 6px; opacity: 0.85; transition: opacity 0.2s; }
+        .top-nav a:hover { opacity: 1; }
+
+        .page-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; text-align: center; padding: 48px 20px 40px; }
+        .page-header img { height: 72px; margin-bottom: 16px; }
+        .page-header h1 { font-size: 1.75rem; font-weight: 700; }
+        .page-header p { margin-top: 8px; font-size: 0.95rem; opacity: 0.75; }
+
+        .progress-bar { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; }
+        .progress-step { display: flex; flex-direction: column; align-items: center; padding: 16px 24px; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; transition: color 0.3s; }
+        .progress-step .step-number { width: 28px; height: 28px; border-radius: 50%; background: var(--border); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; transition: all 0.3s; }
+        .progress-step.active .step-number { background: var(--primary); color: white; box-shadow: 0 0 0 4px rgba(21, 21, 78, 0.1); }
+        .progress-step.active { color: var(--primary); }
+        .progress-step.completed .step-number { background: var(--success); color: white; }
+
+        .form-container { max-width: 820px; margin: 36px auto 60px; padding: 0 20px; }
+
+        #alertBox { display: none; padding: 14px 18px; border-radius: var(--radius); margin-bottom: 24px; font-size: 0.9rem; font-weight: 500; }
+        .alert-success { background: #dcfce7; border: 1px solid #86efac; color: var(--success); }
+        .alert-error { background: #fee2e2; border: 1px solid #fca5a5; color: var(--error); }
+
+        .instruction-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius); padding: 18px 24px; margin-bottom: 20px; display: flex; gap: 14px; align-items: flex-start; }
+        .instruction-card .icon { color: #d97706; font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+        .instruction-card p { font-size: 0.875rem; color: #92400e; line-height: 1.6; }
+        .instruction-card p + p { margin-top: 4px; }
+
+        .form-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 20px; box-shadow: var(--shadow); overflow: hidden; }
+        .form-card-header { background: var(--primary); color: white; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+        .form-card-header .icon { width: 32px; height: 32px; background: rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .form-card-header h2 { font-size: 0.95rem; font-weight: 600; }
+        .form-card-body { padding: 24px; }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .form-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group.span-2 { grid-column: span 2; }
+
+        label { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        label .req { color: var(--error); margin-left: 2px; }
+
+        input[type="text"], input[type="password"], input[type="number"], input[type="date"], select {
+            width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px;
+            font-size: 0.9rem; font-family: 'Inter', sans-serif; color: var(--text); background: white;
+            transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+        }
+        input::-ms-reveal, input::-ms-clear { display: none; }
+        input::placeholder { color: #cbd5e1; }
+        input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(21,21,78,0.08); }
+        select { cursor: pointer; }
+
+        .section-divider { grid-column: 1 / -1; border: none; border-top: 1px solid var(--border); margin: 6px 0; }
+        .section-title { grid-column: 1 / -1; font-size: 0.78rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px; }
+
+        .submit-area { text-align: center; padding: 40px 20px; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+        .submit-area h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 12px; }
+        .submit-area p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px; }
+        .btn-submit { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: white; padding: 14px 48px; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 14px rgba(21,21,78,0.25); }
+        .btn-submit:hover { background: var(--primary-light); transform: translateY(-1px); }
+
+        .success-container { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: white; padding: 40px; border-radius: 16px; text-align: center; z-index: 9999; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+        .success-container h2 { color: var(--success); font-size: 1.4rem; margin-top: 12px; }
+        .success-container p { color: var(--text-muted); font-size: 0.9rem; margin-top: 6px; }
+        .success-icon { width: 72px; height: 72px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 2rem; color: var(--success); }
+
+        /* Multi-step Form CSS */
+        .step-content { display: none; animation: fadeIn 0.4s ease forwards; }
+        .step-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .step-buttons { display: flex; justify-content: space-between; margin-top: 24px; }
+        .step-buttons.align-right { justify-content: flex-end; }
+        .btn-step { padding: 12px 28px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; font-size: 0.95rem; border: none; }
+        .btn-prev { background: white; color: var(--text); border: 1px solid var(--border); }
+        .btn-prev:hover { background: #f8fafc; }
+        .btn-next { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(21, 21, 78, 0.15); }
+        .btn-next:hover { background: var(--primary-light); transform: translateY(-1px); }
+
+        @media (max-width: 640px) {
+            .form-grid, .form-grid.cols-3 { grid-template-columns: 1fr; }
+            .form-group.span-2 { grid-column: span 1; }
+            .form-card-body { padding: 18px; }
+            .progress-step span:not(.step-number) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="loading-screen" aria-hidden="true">
+  <div class="loader-content">
+    <div class="loader-ring"></div>
+    <span class="loader-text">SCNHS SHS</span>
+  </div>
+</div>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="SCNHS Home">
+      <img src="image/logo.png" alt="SCNHS Logo">
+      <div class="nav-brand-text">
+        <div class="school-name">Santa Cruz NHS</div>
+        <div class="school-sub">Senior High School &middot; Davao Del Sur</div>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links" role="menubar">
+      <a href="index.html" role="menuitem">Home</a>
+      <a href="index.html#about" role="menuitem">About</a>
+      <a href="index.html#programs" role="menuitem">Programs</a>
+      <a href="index.html#admissions" role="menuitem">Admissions</a>
+      <a href="index.html#announcements" role="menuitem">News &amp; Events</a>
+      <a href="index.html#contact" role="menuitem">Contact</a>
+      <!-- Portals Dropdown -->
+      <div class="nav-dropdown" id="portalsDropdown">
+        <button class="nav-dropdown__trigger" id="portalsBtn" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle"></i> Portals <i class="fa fa-chevron-down nav-dropdown__caret"></i>
+        </button>
+        <div class="nav-dropdown__menu" id="portalsMenu" role="menu">
+          <a href="student/login.html" class="nav-dropdown__item" role="menuitem">
+            <span class="nav-dropdown__icon"><i class="fa fa-graduation-cap"></i></span>
+            <div>
+              <div class="nav-dropdown__label">Student Portal</div>
+              <div class="nav-dropdown__sub">View enrollment &amp; attendance</div>
+            </div>
+          </a>
+          <a href="admin/login.html" class="nav-dropdown__item" role="menuitem">
+            <span class="nav-dropdown__icon nav-dropdown__icon--admin"><i class="fa fa-shield-alt"></i></span>
+            <div>
+              <div class="nav-dropdown__label">Admin Portal</div>
+              <div class="nav-dropdown__sub">Manage school records</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="online_registration.html" class="nav-enroll active" role="menuitem"><i class="fa fa-graduation-cap"></i> Enroll Now</a>
+    </div>
+  </div>
+</nav>
+
+    <div class="page-header">
+        <img src="image/logo.png" alt="SCNHS Logo">
+        <h1>Online Enrollment Form</h1>
+        <p>Santa Cruz National High School &mdash; Senior High School</p>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-step active" id="indicator-1"><span class="step-number">1</span><span>Program Info</span></div>
+        <div class="progress-step" id="indicator-2"><span class="step-number">2</span><span>Personal Info</span></div>
+        <div class="progress-step" id="indicator-3"><span class="step-number">3</span><span>Address</span></div>
+        <div class="progress-step" id="indicator-4"><span class="step-number">4</span><span>Family</span></div>
+        <div class="progress-step" id="indicator-5"><span class="step-number">5</span><span>Submit</span></div>
+    </div>
+
+    <div class="form-container">
+        <div id="alertBox"></div>
+
+        <div class="instruction-card">
+            <i class="fas fa-info-circle icon"></i>
+            <div>
+                <p><strong>Please fill out the form carefully. Ensure all required fields are completed.</strong></p>
+                <p>Fill in all applicable information in <strong>CAPITAL LETTERS</strong>. Fields marked <span style="color:#dc2626">*</span> are required.</p>
+            </div>
+        </div>
+
+        <form action="submit.php" method="POST" id="enrollmentForm" novalidate>
+
+            <!-- STEP 1: Program Info -->
+            <div class="step-content active" id="step-1">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h2>Program Information</h2>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="grade">Grade Level <span class="req">*</span></label>
+                                <select id="grade" name="grade" required>
+                                    <option value="">-- Select Grade --</option>
+                                    <option value="11">Grade 11</option>
+                                    <option value="12">Grade 12</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="school_year">School Year <span class="req">*</span></label>
+                                <input type="text" id="school_year" name="school_year" placeholder="e.g., 2024-2025" pattern="\d{4}-\d{4}" maxlength="9" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="track">Preferred Track <span class="req">*</span></label>
+                                <select id="track" name="track" required onchange="updateStrands()">
+                                    <option value="">-- Select Track --</option>
+                                    <option value="Academic">Academic</option>
+                                    <option value="TVL">Technical-Vocational-Livelihood (TVL)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="strand">Preferred Strand <span class="req">*</span></label>
+                                <select id="strand" name="strand" required>
+                                    <option value="">-- Select Strand --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="learning_modality">Learning Modality <span class="req">*</span></label>
+                                <select id="learning_modality" name="learning_modality" required>
+                                    <option value="">-- Select Modality --</option>
+                                    <option value="face-to-face">Face-to-Face</option>
+                                    <option value="online">Online</option>
+                                    <option value="blended">Blended</option>
+                                    <option value="modular">Modular</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="semester">Semester <span class="req">*</span></label>
+                                <select id="semester" name="semester" required>
+                                    <option value="">-- Select Semester --</option>
+                                    <option value="1st">1st Semester</option>
+                                    <option value="2nd">2nd Semester</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-buttons align-right">
+                    <button type="button" class="btn-step btn-next" onclick="nextStep(1)">Next Step <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Personal Info -->
+            <div class="step-content" id="step-2">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="icon"><i class="fas fa-user"></i></div>
+                        <h2>Learner Information</h2>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="last_name">Last Name <span class="req">*</span></label>
+                                <input type="text" id="last_name" name="last_name" placeholder="DELA CRUZ" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="first_name">First Name <span class="req">*</span></label>
+                                <input type="text" id="first_name" name="first_name" placeholder="JUAN" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="middle_name">Middle Name</label>
+                                <input type="text" id="middle_name" name="middle_name" placeholder="REYES">
+                            </div>
+                            <div class="form-group">
+                                <label for="extension_name">Extension Name</label>
+                                <input type="text" id="extension_name" name="extension_name" placeholder="Jr. / Sr. / III">
+                            </div>
+                            <hr class="section-divider">
+                            <p class="section-title">Vital Statistics</p>
+                            <div class="form-group">
+                                <label for="lrn">LRN (12-digit) <span class="req">*</span></label>
+                                <input type="text" id="lrn" name="lrn" placeholder="123456789012" pattern="\d{12}" maxlength="12" required>
+                            </div>
+                            
+                            <hr class="section-divider">
+                            <p class="section-title">Student Portal Account Setup</p>
+                            <div class="form-group" style="position: relative;">
+                                <label for="password">Password <span class="req">*</span></label>
+                                <input type="password" id="password" name="password" placeholder="Create a password" required minlength="6">
+                                <i class="fas fa-eye password-toggle" id="togglePassword" style="position: absolute; right: 14px; bottom: 12px; cursor: pointer; color: var(--text-muted);"></i>
+                            </div>
+                            <div class="form-group" style="position: relative;">
+                                <label for="confirm_password">Confirm Password <span class="req">*</span></label>
+                                <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required minlength="6">
+                                <i class="fas fa-eye password-toggle" id="toggleConfirmPassword" style="position: absolute; right: 14px; bottom: 12px; cursor: pointer; color: var(--text-muted);"></i>
+                            </div>
+
+                            <hr class="section-divider">
+                            <p class="section-title">Vital Statistics</p>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth <span class="req">*</span></label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age <span class="req">*</span></label>
+                                <input type="number" id="age" name="age" placeholder="16" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Sex <span class="req">*</span></label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthplace">Place of Birth <span class="req">*</span></label>
+                                <input type="text" id="birthplace" name="birthplace" placeholder="City/Municipality" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Contact Number <span class="req">*</span></label>
+                                <input type="text" id="contact" name="contact" placeholder="09XXXXXXXXX" pattern="\d{11}" maxlength="11" required>
+                            </div>
+                            <hr class="section-divider">
+                            <p class="section-title">Additional Details</p>
+                            <div class="form-group">
+                                <label for="mother_tongue">Mother Tongue</label>
+                                <input type="text" id="mother_tongue" name="mother_tongue" placeholder="e.g., Cebuano">
+                            </div>
+                            <div class="form-group">
+                                <label for="FourPs">4Ps Beneficiary?</label>
+                                <select name="FourPs" id="FourPs">
+                                    <option value="">-- Select --</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="disability">Learner with Disability (if applicable)</label>
+                                <select name="disability" id="disability">
+                                    <option value="">-- Select --</option>
+                                    <option value="Visual Impairment">Visual Impairment</option>
+                                    <option value="Hearing Impairment">Hearing Impairment</option>
+                                    <option value="Learning Disability">Learning Disability</option>
+                                    <option value="Intellectual Disability">Intellectual Disability</option>
+                                    <option value="Blind">Blind</option>
+                                    <option value="Low Vision">Low Vision</option>
+                                    <option value="Autism Spectrum Disorder">Autism Spectrum Disorder</option>
+                                    <option value="Emotional-Behavioral Disorder">Emotional-Behavioral Disorder</option>
+                                    <option value="Orthopedic/Physical Handicap">Orthopedic/Physical Handicap</option>
+                                    <option value="Speech/Language Disorder">Speech/Language Disorder</option>
+                                    <option value="Cerebral Palsy">Cerebral Palsy</option>
+                                    <option value="Special Health Problem">Special Health Problem</option>
+                                    <option value="Multiple Disorder">Multiple Disorder</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ip_community">Indigenous Peoples Community</label>
+                                <input type="text" id="ip_community" name="ip_community" placeholder="If applicable">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-buttons">
+                    <button type="button" class="btn-step btn-prev" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn-step btn-next" onclick="nextStep(2)">Next Step <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- STEP 3: Address -->
+            <div class="step-content" id="step-3">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h2>Address Information</h2>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="form-grid">
+                            <p class="section-title">Current Address</p>
+                            <div class="form-group">
+                                <label for="province">Province <span class="req">*</span></label>
+                                <input type="text" id="province" name="province" placeholder="Province" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="municipality">Municipality/City <span class="req">*</span></label>
+                                <input type="text" id="municipality" name="municipality" placeholder="Municipality/City" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="barangay">Barangay <span class="req">*</span></label>
+                                <input type="text" id="barangay" name="barangay" placeholder="Barangay" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="street">Street / Purok <span class="req">*</span></label>
+                                <input type="text" id="street" name="street" placeholder="Street/Purok Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="house_number">House Number</label>
+                                <input type="text" id="house_number" name="house_number" placeholder="(optional)">
+                            </div>
+                            <div class="form-group">
+                                <label for="zip_code">Zip Code <span class="req">*</span></label>
+                                <input type="text" id="zip_code" name="zip_code" placeholder="e.g., 8000" required>
+                            </div>
+                            <hr class="section-divider">
+                            <p class="section-title">Permanent Address (if different)</p>
+                            <div class="form-group"><label for="permanent_province">Province</label><input type="text" id="permanent_province" name="permanent_province" placeholder="Province"></div>
+                            <div class="form-group"><label for="permanent_municipality">Municipality/City</label><input type="text" id="permanent_municipality" name="permanent_municipality" placeholder="Municipality/City"></div>
+                            <div class="form-group"><label for="permanent_barangay">Barangay</label><input type="text" id="permanent_barangay" name="permanent_barangay" placeholder="Barangay"></div>
+                            <div class="form-group"><label for="permanent_street">Street / Purok</label><input type="text" id="permanent_street" name="permanent_street" placeholder="Street/Purok Name"></div>
+                            <div class="form-group"><label for="permanent_house_number">House Number</label><input type="text" id="permanent_house_number" name="permanent_house_number" placeholder="(optional)"></div>
+                            <div class="form-group"><label for="permanent_zip_code">Zip Code</label><input type="text" id="permanent_zip_code" name="permanent_zip_code" placeholder="e.g., 8000"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-buttons">
+                    <button type="button" class="btn-step btn-prev" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn-step btn-next" onclick="nextStep(3)">Next Step <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- STEP 4: Family & Previous Education -->
+            <div class="step-content" id="step-4">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h2>Parent / Guardian Information</h2>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="form-grid cols-3">
+                            <p class="section-title">Father</p>
+                            <div class="form-group"><label for="father_last_name">Last Name</label><input type="text" id="father_last_name" name="father_last_name" placeholder="Last Name"></div>
+                            <div class="form-group"><label for="father_first_name">First Name</label><input type="text" id="father_first_name" name="father_first_name" placeholder="First Name"></div>
+                            <div class="form-group"><label for="father_middle_name">Middle Name</label><input type="text" id="father_middle_name" name="father_middle_name" placeholder="Middle Name"></div>
+                            <hr class="section-divider">
+                            <p class="section-title">Mother</p>
+                            <div class="form-group"><label for="mother_last_name">Last Name</label><input type="text" id="mother_last_name" name="mother_last_name" placeholder="Last Name"></div>
+                            <div class="form-group"><label for="mother_first_name">First Name</label><input type="text" id="mother_first_name" name="mother_first_name" placeholder="First Name"></div>
+                            <div class="form-group"><label for="mother_middle_name">Middle Name</label><input type="text" id="mother_middle_name" name="mother_middle_name" placeholder="Middle Name"></div>
+                            <hr class="section-divider">
+                            <p class="section-title">Guardian (if applicable)</p>
+                            <div class="form-group"><label for="guardian_last_name">Last Name</label><input type="text" id="guardian_last_name" name="guardian_last_name" placeholder="Last Name"></div>
+                            <div class="form-group"><label for="guardian_first_name">First Name</label><input type="text" id="guardian_first_name" name="guardian_first_name" placeholder="First Name"></div>
+                            <div class="form-group"><label for="guardian_middle_name">Middle Name</label><input type="text" id="guardian_middle_name" name="guardian_middle_name" placeholder="Middle Name"></div>
+                            <div class="form-group">
+                                <label for="contact_guardian_Parent">Parent/Guardian Contact <span class="req">*</span></label>
+                                <input type="text" id="contact_guardian_Parent" name="contact_guardian_parent" placeholder="09XXXXXXXXX" pattern="\d{11}" maxlength="11" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h2>Returning Learner / Transfer Student</h2>
+                    </div>
+                    <div class="form-card-body">
+                        <div class="form-grid">
+                            <div class="form-group span-2">
+                                <label for="is_returning_or_transfer">Are you a returning learner or transfer student? <span class="req">*</span></label>
+                                <select id="is_returning_or_transfer" name="is_returning_or_transfer" required onchange="toggleEducationInfo()">
+                                    <option value="">-- Select --</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="previous_education_section" style="display:none; margin-top:20px;">
+                            <hr style="border:none; border-top:1px solid var(--border); margin-bottom:18px;">
+                            <div class="form-grid">
+                                <p class="section-title">Previous Education</p>
+                                <div class="form-group"><label for="last_grade_level">Last Grade Level Completed</label><input type="text" id="last_grade_level" name="last_grade_level" placeholder="e.g., Grade 11"></div>
+                                <div class="form-group"><label for="last_school_year">Last School Year Completed</label><input type="text" id="last_school_year" name="last_school_year" placeholder="e.g., 2022-2023"></div>
+                                <div class="form-group"><label for="previous_school">Last School Attended</label><input type="text" id="previous_school" name="previous_school" placeholder="School name"></div>
+                                <div class="form-group"><label for="previous_school_id">School ID</label><input type="text" id="previous_school_id" name="previous_school_id" placeholder="School ID number"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-buttons">
+                    <button type="button" class="btn-step btn-prev" onclick="prevStep(4)"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn-step btn-next" onclick="nextStep(4)">Proceed to Submit <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- STEP 5: Submit -->
+            <div class="step-content" id="step-5">
+                <input type="hidden" id="submission_status" name="submission_status" value="pending">
+                
+                <div class="submit-area">
+                    <h2>Review and Submit</h2>
+                    <p>By submitting this form, you certify that all information provided is accurate, true, and correct to the best of your knowledge.</p>
+                    
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Enrollment Form
+                    </button>
+                </div>
+
+                <div class="step-buttons">
+                    <button type="button" class="btn-step btn-prev" onclick="prevStep(5)"><i class="fas fa-arrow-left"></i> Previous Step</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div id="successAnimation" class="success-container">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2>Successfully Submitted!</h2>
+        <p>Your enrollment form has been received.</p>
+    </div>
+
+    <script>
+        // Form stepper logic
+        let currentStep = 1;
+
+        function updateIndicators(step) {
+            document.querySelectorAll('.progress-step').forEach((el, index) => {
+                const s = index + 1;
+                if (s < step) {
+                    el.classList.add('completed');
+                    el.classList.remove('active');
+                } else if (s === step) {
+                    el.classList.add('active');
+                    el.classList.remove('completed');
+                } else {
+                    el.classList.remove('active', 'completed');
+                }
+            });
+        }
+
+        function validateStep(step) {
+            const stepEl = document.getElementById('step-' + step);
+            const requiredFields = stepEl.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.checkValidity() || (field.required && !field.value.trim())) {
+                    isValid = false;
+                    field.style.borderColor = '#dc2626';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
+
+            // Special validation for 12-digit LRN and Passwords
+            if (step === 2) {
+                const lrnField = document.getElementById('lrn');
+                if (lrnField && lrnField.value.trim().length !== 12) {
+                    isValid = false;
+                    lrnField.style.borderColor = '#dc2626';
+                    showAlert('LRN must be exactly 12 digits.', 'error');
+                    return false;
+                }
+                
+                const pwd = document.getElementById('password');
+                const cpwd = document.getElementById('confirm_password');
+                if (pwd && cpwd) {
+                    if (pwd.value.length < 6) {
+                        isValid = false;
+                        pwd.style.borderColor = '#dc2626';
+                        showAlert('Password must be at least 6 characters long.', 'error');
+                        return false;
+                    }
+                    if (pwd.value !== cpwd.value) {
+                        isValid = false;
+                        cpwd.style.borderColor = '#dc2626';
+                        showAlert('Passwords do not match.', 'error');
+                        return false;
+                    }
+                }
+            }
+
+            if (!isValid) {
+                showAlert('Please fill out all required fields marked with *', 'error');
+            }
+            return isValid;
+        }
+
+        function nextStep(step) {
+            if (!validateStep(step)) return;
+
+            document.getElementById('step-' + step).classList.remove('active');
+            currentStep = step + 1;
+            document.getElementById('step-' + currentStep).classList.add('active');
+            updateIndicators(currentStep);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevStep(step) {
+            document.getElementById('step-' + step).classList.remove('active');
+            currentStep = step - 1;
+            document.getElementById('step-' + currentStep).classList.add('active');
+            updateIndicators(currentStep);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateStrands() {
+            const track = document.getElementById('track').value;
+            const strandSelect = document.getElementById('strand');
+            strandSelect.innerHTML = '<option value="">-- Select Strand --</option>';
+            const strands = {
+                Academic: ['STEM','HUMSS','ABM','GAS'],
+                TVL: ['Computer System Servicing (CSS)','Bread and Pastry Production (BPP)',
+                      'Food and Beverage Production (FBP)','Electrical Installation and Maintenance (EIM)',
+                      'Shielded Metal Arc Welding (SMAW)','Caregiving']
+            };
+            (strands[track] || []).forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s; opt.textContent = s;
+                strandSelect.appendChild(opt);
+            });
+        }
+
+        function toggleEducationInfo() {
+            const val = document.getElementById('is_returning_or_transfer').value;
+            document.getElementById('previous_education_section').style.display = val === 'yes' ? 'block' : 'none';
+        }
+
+        function showAlert(message, type) {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
+            alertBox.className = 'alert-' + type;
+            alertBox.style.display = 'block';
+            setTimeout(() => { alertBox.style.display = 'none'; }, 5000);
+        }
+
+        // Form Submission
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Final check on step 5 (though shouldn't be necessary as they had to pass previous steps)
+            document.getElementById('submission_status').value = 'submitted';
+            
+            const btnSubmit = document.getElementById('submitBtn');
+            const originalText = btnSubmit.innerHTML;
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+            const formData = new FormData(this);
+            
+            fetch('submit.php', { method: 'POST', body: formData })
+                .then(r => r.text())
+                .then(data => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = originalText;
+                    
+                    try {
+                        const result = JSON.parse(data);
+                        if (result.success) {
+                            document.getElementById('successAnimation').style.display = 'block';
+                            this.reset();
+                            setTimeout(() => { 
+                                document.getElementById('successAnimation').style.display = 'none'; 
+                                window.location.href = 'index.html';
+                            }, 3500);
+                        } else if (result.error) { 
+                            showAlert(result.error, 'error'); 
+                        }
+                    } catch(e) { 
+                        console.error(data); // Log actual PHP output
+                        showAlert('Invalid server response. Please try again later.', 'error'); 
+                    }
+                })
+                .catch(() => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = originalText;
+                    showAlert('Network error. Please try again.', 'error');
+                });
+        });
+
+        // Password Toggles
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        if (togglePassword && password) {
+            togglePassword.addEventListener('click', function () {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+
+        const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+        const confirmPassword = document.querySelector('#confirm_password');
+        if (toggleConfirmPassword && confirmPassword) {
+            toggleConfirmPassword.addEventListener('click', function () {
+                const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPassword.setAttribute('type', type);
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+    </script>
+
+<script>
+window.addEventListener('load', () => {
+  const ls = document.getElementById('loading-screen');
+  if (ls) { ls.style.opacity = '0'; setTimeout(() => ls.style.display = 'none', 500); }
+});
+const ham  = document.getElementById('hamburger');
+const navL = document.getElementById('nav-links');
+ham.addEventListener('click', () => {
+  const open = navL.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+});
+navL.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { navL.classList.remove('open'); ham.classList.remove('open'); ham.setAttribute('aria-expanded', false); });
+});
+const portalsBtn  = document.getElementById('portalsBtn');
+const portalsMenu = document.getElementById('portalsMenu');
+const portalsDrop = document.getElementById('portalsDropdown');
+portalsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = portalsDrop.classList.toggle('open');
+  portalsBtn.setAttribute('aria-expanded', isOpen);
+});
+document.addEventListener('click', (e) => {
+  if (!portalsDrop.contains(e.target)) {
+    portalsDrop.classList.remove('open');
+    portalsBtn.setAttribute('aria-expanded', false);
+  }
+});
+const navbar = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  navbar.classList.toggle('scrolled', y > 10);
+  if (y > 100) { navbar.classList.toggle('nav-hidden', y > lastY); } else { navbar.classList.remove('nav-hidden'); }
+  lastY = y;
+}, { passive: true });
+</script>
+</body>
+</html>

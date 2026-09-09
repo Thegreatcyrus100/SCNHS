@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santa Cruz National High School – Senior High School</title>
+  <meta name="description" content="Welcome to Santa Cruz National High School (SCNHS) – A premier public senior high school in Santa Cruz, Davao Del Sur offering STEM, HUMSS, ABM, GAS, and TVL strands.">
+  <meta name="keywords" content="SCNHS, Santa Cruz National High School, Senior High School, SHS, Davao Del Sur, STEM, HUMSS, ABM, GAS, TVL, enrollment">
+  <link rel="icon" href="image/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="static/shs_main.css">
+</head>
+<body>
+
+<div id="loading-screen" aria-hidden="true">
+  <div class="loader-content">
+    <div class="loader-ring"></div>
+    <span class="loader-text">SCNHS SHS</span>
+  </div>
+</div>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand" aria-label="SCNHS Home">
+      <img src="image/logo.png" alt="SCNHS Logo">
+      <div class="nav-brand-text">
+        <div class="school-name">Santa Cruz NHS</div>
+        <div class="school-sub">Senior High School &middot; Davao Del Sur</div>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links" role="menubar">
+      <a href="#hero" class="active" role="menuitem">Home</a>
+      <a href="#about" role="menuitem">About</a>
+      <a href="#programs" role="menuitem">Programs</a>
+      <a href="#admissions" role="menuitem">Admissions</a>
+      <a href="#announcements" role="menuitem">News &amp; Events</a>
+      <a href="#contact" role="menuitem">Contact</a>
+      <a href="student/login.html" role="menuitem"><i class="fa fa-user-circle"></i> Portal</a>
+      <a href="online_registration.html" class="nav-enroll" role="menuitem"><i class="fa fa-graduation-cap"></i> Enroll Now</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero" aria-labelledby="hero-heading">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-circle hc1"></div>
+    <div class="hero-circle hc2"></div>
+    <div class="hero-circle hc3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        School Year 2025-2026 Enrollment Now Open
+      </div>
+      <h1 class="hero-title" id="hero-heading">
+        Welcome to<br>
+        <span>Santa Cruz</span><br>
+        National High School
+      </h1>
+      <p class="hero-desc">A premier public secondary educational institution in Santa Cruz, Davao Del Sur — shaping future leaders through quality education, values formation, and career-ready Senior High School programs.</p>
+      <div class="hero-cta">
+        <a href="online_registration.html" class="btn-primary" id="hero-enroll-btn"><i class="fa fa-graduation-cap"></i> Enroll Now</a>
+        <a href="#programs" class="btn-outline-white" id="hero-explore-btn">Explore Programs</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num" data-count="1000">0</span><span class="hero-stat-lbl">Students</span></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-count="60">0</span><span class="hero-stat-lbl">Expert Teachers</span></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-count="10">0</span><span class="hero-stat-lbl">SHS Strands</span></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-count="55">0</span><span class="hero-stat-lbl">Years of Excellence</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-img-card">
+        <img src="image/bg.png" alt="Santa Cruz National High School Campus">
+      </div>
+      <div class="hero-float hf1">
+        <div class="float-icon fi-green">&#127891;</div>
+        <div><div class="float-main">Top Performing</div><div class="float-sub">DepEd Region XI</div></div>
+      </div>
+      <div class="hero-float hf2">
+        <div class="float-icon fi-blue">&#128218;</div>
+        <div><div class="float-main">10 SHS Strands</div><div class="float-sub">Academic &amp; TVL Tracks</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-heading">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <div class="about-img-main"><img src="image/SCNHS.jpg" alt="SCNHS School Building"></div>
+      <div class="about-badge"><div class="about-badge-num">1969</div><div class="about-badge-lbl">Est. Year</div></div>
+    </div>
+    <div class="about-text reveal rd1">
+      <span class="section-label">About SCNHS</span>
+      <h2 class="section-title" id="about-heading">Excellence in Education Since 1969</h2>
+      <p>Santa Cruz National High School (SCNHS) is a prestigious public secondary educational institution located in Santa Cruz, Davao Del Sur. For over five decades, we have been dedicated to providing quality education, shaping future leaders, and building strong communities in Mindanao.</p>
+      <p>Our Senior High School department offers both Academic and Technical-Vocational-Livelihood (TVL) strands, equipping every learner with the skills, knowledge, and character needed for college, employment, and entrepreneurship.</p>
+      <div class="mv-cards">
+        <div class="mv-card"><h4>&#127919; Mission</h4><p>To provide quality, inclusive, and relevant education that nurtures academic excellence, life skills, and moral values in every learner.</p></div>
+        <div class="mv-card"><h4>&#128065; Vision</h4><p>A leading public school producing globally competitive, values-driven graduates who contribute meaningfully to society and the nation.</p></div>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-cell"><span class="stat-num counter" data-count="1000">0</span><span class="stat-lbl">Students</span></div>
+        <div class="stat-cell"><span class="stat-num counter" data-count="60">0</span><span class="stat-lbl">Teachers</span></div>
+        <div class="stat-cell"><span class="stat-num counter" data-count="10">0</span><span class="stat-lbl">Strands</span></div>
+        <div class="stat-cell"><span class="stat-num counter" data-count="55">0</span><span class="stat-lbl">Years</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programs" aria-labelledby="programs-heading">
+  <div class="section-header reveal">
+    <span class="section-label">Academic &amp; TVL Tracks</span>
+    <h2 class="section-title" id="programs-heading">Our SHS Programs &amp; Strands</h2>
+    <p class="section-sub">"If we teach today as we taught yesterday, we rob our children of tomorrow." &mdash; John Dewey</p>
+  </div>
+  <div class="programs-grid">
+    <article class="program-card reveal"><div class="prog-icon">&#128300;</div><span class="prog-tag">Academic</span><h3 class="prog-name">Science, Technology, Engineering &amp; Mathematics (STEM)</h3><p class="prog-desc">Prepares students for college courses in engineering, medicine, architecture, and the sciences through rigorous math and science subjects.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal rd1"><div class="prog-icon">&#128214;</div><span class="prog-tag">Academic</span><h3 class="prog-name">Humanities &amp; Social Sciences (HUMSS)</h3><p class="prog-desc">Ideal for aspiring educators, journalists, lawyers, and social workers. Focuses on literature, politics, philosophy, and communication.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal rd2"><div class="prog-icon">&#128188;</div><span class="prog-tag">Academic</span><h3 class="prog-name">Accountancy, Business &amp; Management (ABM)</h3><p class="prog-desc">Designed for future entrepreneurs, accountants, and business professionals. Covers accounting, business math, and management principles.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal rd3"><div class="prog-icon">&#128208;</div><span class="prog-tag">Academic</span><h3 class="prog-name">General Academic Strand (GAS)</h3><p class="prog-desc">A flexible academic track offering a broad range of subjects, ideal for students who have not yet decided on a specific college course.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal"><div class="prog-icon">&#128187;</div><span class="prog-tag">TVL</span><h3 class="prog-name">Computer Systems Servicing (CSS)</h3><p class="prog-desc">Equips students with hands-on skills in hardware installation, LAN setup, and computer systems maintenance leading to TESDA NC II certification.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal rd1"><div class="prog-icon">&#9889;</div><span class="prog-tag">TVL</span><h3 class="prog-name">Electrical Installation &amp; Maintenance (EIM)</h3><p class="prog-desc">Trains students in electrical wiring, maintenance of electrical systems, and safety standards aligned with TESDA NC II competencies.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal rd2"><div class="prog-icon">&#128295;</div><span class="prog-tag">TVL</span><h3 class="prog-name">Shielded Metal Arc Welding (SMAW)</h3><p class="prog-desc">Develops skills in metal arc welding techniques, safety practices, and quality control — preparing students for the global construction industry.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal rd3"><div class="prog-icon">&#127838;</div><span class="prog-tag">TVL</span><h3 class="prog-name">Bread &amp; Pastry Production (BPP)</h3><p class="prog-desc">Covers baking and pastry arts, food safety, and production management — perfect for students aspiring to work in the food and hospitality industry.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal"><div class="prog-icon">&#127869;</div><span class="prog-tag">TVL</span><h3 class="prog-name">Food &amp; Beverage Production (FBP)</h3><p class="prog-desc">Prepares students for careers in the food service industry through culinary arts, beverage management, and kitchen operations training.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+    <article class="program-card reveal rd1"><div class="prog-icon">&#10084;</div><span class="prog-tag">TVL</span><h3 class="prog-name">Caregiving</h3><p class="prog-desc">Trains students in providing care for the elderly and children, covering health monitoring, first aid, and patient communication. TESDA NC II certified.</p><a href="strand.html" class="prog-link">Learn More</a></article>
+  </div>
+</section>
+
+<section id="announcements" aria-labelledby="announce-heading">
+  <div class="section-header reveal">
+    <span class="section-label">News &amp; Announcements</span>
+    <h2 class="section-title" id="announce-heading">Latest Updates from SCNHS</h2>
+    <p class="section-sub">Stay informed with the latest school news, announcements, and important updates from the administration.</p>
+  </div>
+  <div class="announce-grid" id="dynamic-announcements-container">
+    <div style="text-align:center;width:100%;color:var(--text-muted);padding:40px;">
+        <i class="fas fa-spinner fa-spin" style="font-size:2rem;margin-bottom:10px;"></i>
+        <p>Loading announcements...</p>
+    </div>
+  </div>
+</section>
+
+<section id="events" aria-labelledby="events-heading">
+  <div class="section-header reveal">
+    <span class="section-label">School Calendar</span>
+    <h2 class="section-title" id="events-heading">Upcoming School Events</h2>
+    <p class="section-sub">Mark your calendars for these important school activities and events for SY 2025-2026.</p>
+  </div>
+  <div class="events-inner" id="dynamic-events-container">
+    <div style="text-align:center;width:100%;color:var(--text-muted);padding:40px;">
+        <i class="fas fa-spinner fa-spin" style="font-size:2rem;margin-bottom:10px;"></i>
+        <p>Loading school events...</p>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" aria-labelledby="achieve-heading">
+  <div class="section-header reveal">
+    <span class="section-label">Pride &amp; Honor</span>
+    <h2 class="section-title" id="achieve-heading">School Achievements &amp; Awards</h2>
+    <p class="section-sub">SCNHS continues to excel in academics, competitions, and community service.</p>
+  </div>
+  <div class="achieve-grid" id="dynamic-achievements-container">
+    <div style="text-align:center;width:100%;color:var(--text-muted);padding:40px;">
+        <i class="fas fa-spinner fa-spin" style="font-size:2rem;margin-bottom:10px;"></i>
+        <p>Loading achievements...</p>
+    </div>
+  </div>
+</section>
+
+<section id="admissions" aria-labelledby="admissions-heading">
+  <div class="admissions-inner">
+    <div class="adm-left reveal">
+      <span class="section-label">Admissions</span>
+      <h2 class="section-title" id="admissions-heading">Start Your SHS Journey at SCNHS</h2>
+      <p class="section-sub">Join a school that invests in your future. Admission is open to all qualified Grade 10 completers and transferees.</p>
+      <div class="req-list">
+        <div class="req-item"><div class="req-check">&#10003;</div><span>Report Card (Form 138) - Grade 10 or equivalent</span></div>
+        <div class="req-item"><div class="req-check">&#10003;</div><span>PSA-issued Birth Certificate (photocopy)</span></div>
+        <div class="req-item"><div class="req-check">&#10003;</div><span>Good Moral Certificate from previous school</span></div>
+        <div class="req-item"><div class="req-check">&#10003;</div><span>2 pcs 2x2 ID Picture (white background)</span></div>
+        <div class="req-item"><div class="req-check">&#10003;</div><span>Accomplished SHS Application Form</span></div>
+        <div class="req-item"><div class="req-check">&#10003;</div><span>Parent/Guardian Consent Form &amp; Contact Information</span></div>
+      </div>
+      <a href="online_registration.html" class="btn-outline-white" id="start-enroll-btn" style="margin-top:1rem;"><i class="fa fa-file-alt"></i> Start Enrollment Online</a>
+    </div>
+    <div class="adm-right reveal rd2">
+      <h3>&#128203; Enrollment Process</h3>
+      <div class="enroll-step"><div class="step-num">1</div><div class="step-text"><h4>Submit Requirements</h4><p>Prepare and submit all required documents to the SHS Registrar's Office or upload via the online portal.</p></div></div>
+      <div class="enroll-step"><div class="step-num">2</div><div class="step-text"><h4>Strand Assessment &amp; Interview</h4><p>Undergo a brief strand assessment and interview to determine the most suitable academic track for you.</p></div></div>
+      <div class="enroll-step"><div class="step-num">3</div><div class="step-text"><h4>Enrollment Confirmation</h4><p>Receive your Section assignment and Learner Reference Number (LRN). Sign the enrollment form and school policies.</p></div></div>
+      <div class="enroll-step"><div class="step-num">4</div><div class="step-text"><h4>Receive School Materials</h4><p>Claim your DepEd-issued modules, textbooks, and school ID during the designated distribution schedule.</p></div></div>
+      <div class="enroll-dates">
+        <div><div class="edate-lbl">Enrollment Opens</div><div class="edate-val">June 1, 2025</div></div>
+        <div><div class="edate-lbl">Enrollment Closes</div><div class="edate-val">June 30, 2025</div></div>
+        <div><div class="edate-lbl">Classes Begin</div><div class="edate-val">July 14, 2025</div></div>
+        <div><div class="edate-lbl">Office Hours</div><div class="edate-val">Mon-Fri, 8AM-5PM</div></div>
+      </div>
+      <a href="online_registration.html" class="btn-primary" style="width:100%;justify-content:center;" id="enroll-form-btn"><i class="fa fa-graduation-cap"></i> Enroll Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" aria-labelledby="gallery-heading">
+  <div class="section-header reveal">
+    <span class="section-label">School Gallery</span>
+    <h2 class="section-title" id="gallery-heading">Life at SCNHS</h2>
+    <p class="section-sub">A glimpse into the vibrant school life, activities, and moments that make SCNHS home.</p>
+  </div>
+  <div class="gallery-grid" id="dynamic-gallery-container">
+    <div style="grid-column: 1 / -1; text-align:center;width:100%;color:var(--text-muted);padding:40px;">
+        <i class="fas fa-spinner fa-spin" style="font-size:2rem;margin-bottom:10px;"></i>
+        <p>Loading gallery...</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="section-header reveal">
+    <span class="section-label">Get in Touch</span>
+    <h2 class="section-title" id="contact-heading">Contact &amp; Location</h2>
+    <p class="section-sub">Have questions about enrollment, programs, or school matters? Our staff is here to help.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="c-card reveal"><div class="c-icon"><i class="fa fa-map-marker-alt"></i></div><div><h4>School Address</h4><p>Santa Cruz National High School<br>Santa Cruz, Davao Del Sur 8039<br>Philippines</p></div></div>
+      <div class="c-card reveal rd1"><div class="c-icon"><i class="fa fa-phone"></i></div><div><h4>Contact Number</h4><a href="tel:+63000000000">(082) 000-0000</a><br><a href="tel:+63000000000">+63 900 000 0000</a></div></div>
+      <div class="c-card reveal rd2"><div class="c-icon"><i class="fa fa-envelope"></i></div><div><h4>Email Address</h4><a href="mailto:scnhs@deped.gov.ph">scnhs@deped.gov.ph</a><br><a href="mailto:shs.scnhs@deped.gov.ph">shs.scnhs@deped.gov.ph</a></div></div>
+      <div class="c-card reveal rd3"><div class="c-icon"><i class="fa fa-clock"></i></div><div><h4>Office Hours</h4><p>Monday - Friday<br>7:00 AM - 5:00 PM<br>Closed on holidays</p></div></div>
+      <div class="map-box reveal" aria-label="School location map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31700.0!2d125.1!3d6.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f9cbf1c1f54997%3A0x9d0a5d2e7d4b8f3c!2sSanta+Cruz%2C+Davao+del+Sur!5e0!3m2!1sen!2sph!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Santa Cruz, Davao Del Sur Map"></iframe>
+      </div>
+      <div class="c-card reveal"><div class="c-icon"><i class="fa fa-share-alt"></i></div><div><h4>Follow Us</h4><div class="social-row" style="margin-top:.5rem;"><a href="#" class="soc-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" class="soc-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" class="soc-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="#" class="soc-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div></div>
+    </div>
+    <div class="c-form-wrap reveal rd2">
+      <h3>Send Us a Message</h3>
+      <p class="sub">Fill out the form below and our team will respond within 1-2 business days.</p>
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="fg"><label for="cf-name">Full Name *</label><input type="text" id="cf-name" name="name" placeholder="Juan dela Cruz" required></div>
+          <div class="fg"><label for="cf-email">Email Address *</label><input type="email" id="cf-email" name="email" placeholder="juan@email.com" required></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label for="cf-phone">Phone Number</label><input type="tel" id="cf-phone" name="phone" placeholder="+63 900 000 0000"></div>
+          <div class="fg"><label for="cf-subject">Subject *</label><select id="cf-subject" name="subject" required><option value="" disabled selected>Select a topic</option><option value="enrollment">Enrollment Inquiry</option><option value="programs">SHS Programs</option><option value="transferee">Transferee</option><option value="tesda">TESDA / NC II</option><option value="other">Other</option></select></div>
+        </div>
+        <div class="fg"><label for="cf-message">Message *</label><textarea id="cf-message" name="message" placeholder="Write your message here..." required></textarea></div>
+        <button type="submit" class="btn-primary" id="contact-submit" style="width:100%;justify-content:center;border:none;cursor:pointer;font-family:inherit;font-size:.92rem;"><i class="fa fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="f-logo">
+        <img src="image/logo.png" alt="SCNHS Logo">
+        <div><div class="f-logo-name">Santa Cruz NHS</div><div style="font-size:.62rem;color:rgba(255,255,255,.5);">Senior High School</div></div>
+      </div>
+      <p class="f-tagline">Shaping future leaders through quality education, values formation, and career-ready Senior High School programs since 1969.</p>
+      <div class="f-socials">
+        <a href="#" class="f-soc" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="f-soc" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="f-soc" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="f-soc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About SCNHS</a></li>
+        <li><a href="#programs">SHS Programs</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#announcements">News &amp; Events</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>SHS Strands</h4>
+      <ul>
+        <li><a href="strand.html">STEM</a></li>
+        <li><a href="strand.html">HUMSS</a></li>
+        <li><a href="strand.html">ABM</a></li>
+        <li><a href="strand.html">GAS</a></li>
+        <li><a href="strand.html">TVL - CSS</a></li>
+        <li><a href="strand.html">TVL - EIM</a></li>
+        <li><a href="strand.html">TVL - SMAW</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul>
+        <li><a href="#">&#128205; Santa Cruz, Davao Del Sur</a></li>
+        <li><a href="tel:+63000000000">&#128222; (082) 000-0000</a></li>
+        <li><a href="mailto:scnhs@deped.gov.ph">&#9993; scnhs@deped.gov.ph</a></li>
+        <li><a href="#">&#128336; Mon-Fri, 7AM-5PM</a></li>
+      </ul>
+      <div style="margin-top:1.25rem;">
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student/login.html">Student Login</a></li>
+          <li><a href="online_registration.html">Online Enrollment</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="f-copy">&#169; 2025 Santa Cruz National High School. All rights reserved. | Developed by the ICT Department</p>
+    <div class="f-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Back to top" title="Scroll to top">
+  <i class="fa fa-chevron-up"></i>
+</button>
+
+<script>
+window.addEventListener('load', () => {
+  const ls = document.getElementById('loading-screen');
+  if (ls) { ls.style.opacity = '0'; setTimeout(() => ls.style.display = 'none', 500); }
+});
+
+const ham  = document.getElementById('hamburger');
+const navL = document.getElementById('nav-links');
+ham.addEventListener('click', () => {
+  const open = navL.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+});
+navL.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { navL.classList.remove('open'); ham.classList.remove('open'); ham.setAttribute('aria-expanded', false); });
+});
+
+
+
+
+const navbar = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  navbar.classList.toggle('scrolled', y > 10);
+  if (y > 100) { navbar.classList.toggle('nav-hidden', y > lastY); } else { navbar.classList.remove('nav-hidden'); }
+  lastY = y;
+}, { passive: true });
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const secObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+sections.forEach(s => secObs.observe(s));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) { e.preventDefault(); const top = target.getBoundingClientRect().top + window.scrollY - (navbar.offsetHeight + 16); window.scrollTo({ top, behavior: 'smooth' }); }
+  });
+});
+
+const revealEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } }); }, { threshold: 0.1 });
+revealEls.forEach(el => revObs.observe(el));
+
+function animateCount(el, end, duration) {
+  duration = duration || 1800;
+  let start = 0, startTs = null;
+  const suffix = (end >= 1000 || end >= 55 || end >= 60 || end >= 10) ? '+' : '';
+  function step(ts) {
+    if (!startTs) startTs = ts;
+    const progress = Math.min((ts - startTs) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * end) + (progress >= 1 ? suffix : '');
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const ctrObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const end = parseInt(e.target.dataset.count);
+      animateCount(e.target, end);
+      ctrObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => { el.textContent = '0'; ctrObs.observe(el); });
+
+const backTop = document.getElementById('back-top');
+window.addEventListener('scroll', () => { backTop.classList.toggle('show', window.scrollY > 500); }, { passive: true });
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contact-submit');
+  btn.innerHTML = '<i class="fa fa-check"></i> Message Sent!';
+  btn.style.background = '#16A34A';
+  setTimeout(() => { btn.innerHTML = '<i class="fa fa-paper-plane"></i> Send Message'; btn.style.background = ''; this.reset(); }, 3500);
+});
+</script>
+
+<!-- Fetch Dynamic Events -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('api_events.php')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('dynamic-events-container');
+            if (data.success && data.events.length > 0) {
+                container.innerHTML = '';
+                const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                data.events.forEach((event, index) => {
+                    const dateObj = new Date(event.event_date);
+                    const day = String(dateObj.getDate()).padStart(2, '0');
+                    const month = months[dateObj.getMonth()];
+                    
+                    // Optional styling variations for animation
+                    html += `
+                        <div class="event-card reveal visible ${delayClass}">
+                            <div class="event-date">
+                                <span class="e-mon">${month}</span>
+                                <span class="e-day">${day}</span>
+                            </div>
+                            <div class="event-info">
+                                <h3 class="event-title">${ev.event_title}</h3>
+                                <p class="event-desc">${ev.description || 'No description provided.'}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            } else {
+                container.innerHTML = '<p style="text-align:center; width:100%; color:var(--text-muted);">No upcoming events scheduled.</p>';
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching events:', err);
+            container.innerHTML = '<p style="text-align:center; width:100%; color:var(--danger);">Failed to load events. Please try again later.</p>';
+        });
+        
+    // Fetch Dynamic Announcements
+    const announcementsContainer = document.getElementById('dynamic-announcements-container');
+    if (announcementsContainer) {
+        fetch('api_announcements.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.data && data.data.length > 0) {
+                    let html = '';
+                    data.data.forEach((ann, index) => {
+                        const d = new Date(ann.published_date);
+                        const month = d.toLocaleString('default', { month: 'short' });
+                        const day = String(d.getDate()).padStart(2, '0');
+                        const delayClass = index % 3 === 1 ? 'rd1' : (index % 3 === 2 ? 'rd2' : '');
+                        
+                        html += `
+                        <article class="announce-card reveal visible ${delayClass}">
+                            <div class="announce-top">
+                                <div class="announce-date-box">
+                                    <span class="ann-day">${day}</span>
+                                    <span class="ann-mon">${month}</span>
+                                </div>
+                                <span class="ann-cat">Update</span>
+                            </div>
+                            <div class="announce-body">
+                                <h3 class="announce-title">${ann.title}</h3>
+                                <p class="announce-text">${ann.content.substring(0, 150)}${ann.content.length > 150 ? '...' : ''}</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+                        `;
+                    });
+                    announcementsContainer.innerHTML = html;
+                } else {
+                    announcementsContainer.innerHTML = '<p style="text-align:center; width:100%; color:var(--text-muted);">No announcements available.</p>';
+                }
+            })
+            .catch(err => {
+                console.error('Error fetching announcements:', err);
+                announcementsContainer.innerHTML = '<p style="text-align:center; width:100%; color:var(--danger);">Failed to load announcements.</p>';
+            });
+    }
+
+    // Fetch Dynamic Achievements
+    const achievementsContainer = document.getElementById('dynamic-achievements-container');
+    if (achievementsContainer) {
+        fetch('api_achievements.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.data && data.data.length > 0) {
+                    let html = '';
+                    data.data.forEach((ach, index) => {
+                        const delayClass = index % 3 === 1 ? 'rd1' : (index % 3 === 2 ? 'rd2' : '');
+                        
+                        html += `
+                        <div class="achieve-card reveal visible ${delayClass}">
+                            <span class="achieve-icon">${ach.icon}</span>
+                            <h3 class="achieve-title">${ach.title}</h3>
+                            <p class="achieve-desc">${ach.description}</p>
+                            <span class="achieve-year">${ach.year}</span>
+                        </div>
+                        `;
+                    });
+                    achievementsContainer.innerHTML = html;
+                } else {
+                    achievementsContainer.innerHTML = '<p style="text-align:center; width:100%; color:var(--text-muted);">No achievements to display.</p>';
+                }
+            })
+            .catch(err => {
+                console.error('Error fetching achievements:', err);
+                achievementsContainer.innerHTML = '<p style="text-align:center; width:100%; color:var(--danger);">Failed to load achievements.</p>';
+            });
+    }
+
+    // Fetch Dynamic Gallery
+    const galleryContainer = document.getElementById('dynamic-gallery-container');
+    if (galleryContainer) {
+        fetch('api_gallery.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.data && data.data.length > 0) {
+                    let html = '';
+                    data.data.forEach((item, index) => {
+                        const isFeat = index === 0 ? 'g-feat' : '';
+                        const delayClass = index % 3 === 1 ? 'rd1' : (index % 3 === 2 ? 'rd2' : '');
+                        
+                        html += `
+                        <div class="g-item ${isFeat} reveal visible ${delayClass}">
+                            <img src="${item.image_path}" alt="${item.title}">
+                            <div class="g-overlay">
+                                <span class="g-overlay-text">${item.title}</span>
+                            </div>
+                        </div>
+                        `;
+                    });
+                    galleryContainer.innerHTML = html;
+                } else {
+                    galleryContainer.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; width:100%; color:var(--text-muted);">No images in gallery.</p>';
+                }
+            })
+            .catch(err => {
+                console.error('Error fetching gallery:', err);
+                galleryContainer.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; width:100%; color:var(--danger);">Failed to load gallery.</p>';
+            });
+    }
+});
+</script>
+
+</body>
+</html>

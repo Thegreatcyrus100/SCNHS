@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: scnhs-dropout-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python train_ai.py
+    startCommand: gunicorn ai_api:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0

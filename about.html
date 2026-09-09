@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SCNHS | Santa Cruz National High School</title>
+    <meta name="description" content="Learn about Santa Cruz National High School — our mission, vision, history, and senior high school programs in Davao Del Sur.">
+    <link rel="shortcut icon" href="image/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="static/shs_main.css">
+    <link rel="stylesheet" href="static/style_modern.css">
+</head>
+<body>
+
+<div id="loading-screen" aria-hidden="true">
+  <div class="loader-content">
+    <div class="loader-ring"></div>
+    <span class="loader-text">SCNHS SHS</span>
+  </div>
+</div>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="SCNHS Home">
+      <img src="image/logo.png" alt="SCNHS Logo">
+      <div class="nav-brand-text">
+        <div class="school-name">Santa Cruz NHS</div>
+        <div class="school-sub">Senior High School &middot; Davao Del Sur</div>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links" role="menubar">
+      <a href="index.html" role="menuitem">Home</a>
+      <a href="index.html#about" role="menuitem" class="active">About</a>
+      <a href="index.html#programs" role="menuitem">Programs</a>
+      <a href="index.html#admissions" role="menuitem">Admissions</a>
+      <a href="index.html#announcements" role="menuitem">News &amp; Events</a>
+      <a href="index.html#contact" role="menuitem">Contact</a>
+      <!-- Portals Dropdown -->
+      <div class="nav-dropdown" id="portalsDropdown">
+        <button class="nav-dropdown__trigger" id="portalsBtn" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle"></i> Portals <i class="fa fa-chevron-down nav-dropdown__caret"></i>
+        </button>
+        <div class="nav-dropdown__menu" id="portalsMenu" role="menu">
+          <a href="student/login.html" class="nav-dropdown__item" role="menuitem">
+            <span class="nav-dropdown__icon"><i class="fa fa-graduation-cap"></i></span>
+            <div>
+              <div class="nav-dropdown__label">Student Portal</div>
+              <div class="nav-dropdown__sub">View enrollment &amp; attendance</div>
+            </div>
+          </a>
+          <a href="admin/login.html" class="nav-dropdown__item" role="menuitem">
+            <span class="nav-dropdown__icon nav-dropdown__icon--admin"><i class="fa fa-shield-alt"></i></span>
+            <div>
+              <div class="nav-dropdown__label">Admin Portal</div>
+              <div class="nav-dropdown__sub">Manage school records</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="online_registration.html" class="nav-enroll" role="menuitem"><i class="fa fa-graduation-cap"></i> Enroll Now</a>
+    </div>
+  </div>
+</nav>
+
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Excellence Through Education</h1>
+            <p class="subtitle">Cultivating Future Leaders Since 1965</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Graduation Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Active Students</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mission-card">
+                <h2>Our Mission</h2>
+                <p>To provide quality education that empowers students to become globally competitive, morally upright, and socially responsible citizens.</p>
+            </div>
+            <div class="vision-card">
+                <h2>Our Vision</h2>
+                <p>To be the leading institution in secondary education, recognized for academic excellence, character formation, and community engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Overview -->
+    <section id="programs" class="section">
+        <h2 class="section-title">Academic Excellence</h2>
+        <div class="grid-container">
+            <div class="card">
+                <i class="fas fa-microscope"></i>
+                <h3>STEM</h3>
+                <p>Science, Technology, Engineering, and Mathematics</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-book-reader"></i>
+                <h3>HUMSS</h3>
+                <p>Humanities and Social Sciences</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>ABM</h3>
+                <p>Accountancy, Business and Management</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="features" class="section parallax">
+        <h2 class="section-title">Why Choose SCNHS?</h2>
+        <div class="grid-container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>Excellence in Education</h3>
+                <p>Consistently high academic performance and achievement</p>
+            </div>
+            <!-- Add more feature cards -->
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section id="news" class="section">
+        <h2 class="section-title">School Updates</h2>
+        <div class="news-slider">
+            <!-- Add news items -->
+        </div>
+    </section>
+
+    <section class="statistics-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact in Numbers</h2>
+            <div class="grid-container">
+                <div class="stat-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <div class="stat-number">95%</div>
+                    <p>College Acceptance Rate</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <div class="stat-number">200+</div>
+                    <p>Academic Awards</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div class="stat-number">50+</div>
+                    <p>Expert Faculty Members</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Santa Cruz, Location</p>
+                <p><i class="fas fa-phone"></i> Phone: (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> Email: info@scnhs.edu.ph</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#admission">Admission</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Santa Cruz National High School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll-based animations
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < window.innerHeight * 0.8) {
+                    card.classList.add('visible');
+                }
+            });
+        });
+
+        // Add intersection observer for statistics animation
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+
+<script>
+window.addEventListener('load', () => {
+  const ls = document.getElementById('loading-screen');
+  if (ls) { ls.style.opacity = '0'; setTimeout(() => ls.style.display = 'none', 500); }
+});
+const ham  = document.getElementById('hamburger');
+const navL = document.getElementById('nav-links');
+ham.addEventListener('click', () => {
+  const open = navL.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+});
+navL.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { navL.classList.remove('open'); ham.classList.remove('open'); ham.setAttribute('aria-expanded', false); });
+});
+const portalsBtn  = document.getElementById('portalsBtn');
+const portalsMenu = document.getElementById('portalsMenu');
+const portalsDrop = document.getElementById('portalsDropdown');
+portalsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = portalsDrop.classList.toggle('open');
+  portalsBtn.setAttribute('aria-expanded', isOpen);
+});
+document.addEventListener('click', (e) => {
+  if (!portalsDrop.contains(e.target)) {
+    portalsDrop.classList.remove('open');
+    portalsBtn.setAttribute('aria-expanded', false);
+  }
+});
+const navbar = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  navbar.classList.toggle('scrolled', y > 10);
+  if (y > 100) { navbar.classList.toggle('nav-hidden', y > lastY); } else { navbar.classList.remove('nav-hidden'); }
+  lastY = y;
+}, { passive: true });
+</script>
+</body>
+</html>

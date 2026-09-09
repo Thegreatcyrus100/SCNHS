@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHS Strands | Santa Cruz National High School</title>
+    <meta name="description" content="Explore the Senior High School strands at SCNHS — STEM, HUMSS, ABM, GAS, and TVL tracks in Santa Cruz, Davao Del Sur.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/shs_main.css">
+    <link rel="stylesheet" href="static/style_modern.css?v=2">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="image/logo.png">
+</head>
+<body>
+
+<div id="loading-screen" aria-hidden="true">
+  <div class="loader-content">
+    <div class="loader-ring"></div>
+    <span class="loader-text">SCNHS SHS</span>
+  </div>
+</div>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="SCNHS Home">
+      <img src="image/logo.png" alt="SCNHS Logo">
+      <div class="nav-brand-text">
+        <div class="school-name">Santa Cruz NHS</div>
+        <div class="school-sub">Senior High School &middot; Davao Del Sur</div>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links" role="menubar">
+      <a href="index.html" role="menuitem">Home</a>
+      <a href="index.html#about" role="menuitem">About</a>
+      <a href="index.html#programs" role="menuitem">Programs</a>
+      <a href="index.html#admissions" role="menuitem">Admissions</a>
+      <a href="index.html#announcements" role="menuitem">News &amp; Events</a>
+      <a href="index.html#contact" role="menuitem">Contact</a>
+      <!-- Portals Dropdown -->
+      <div class="nav-dropdown" id="portalsDropdown">
+        <button class="nav-dropdown__trigger" id="portalsBtn" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle"></i> Portals <i class="fa fa-chevron-down nav-dropdown__caret"></i>
+        </button>
+        <div class="nav-dropdown__menu" id="portalsMenu" role="menu">
+          <a href="student/login.html" class="nav-dropdown__item" role="menuitem">
+            <span class="nav-dropdown__icon"><i class="fa fa-graduation-cap"></i></span>
+            <div>
+              <div class="nav-dropdown__label">Student Portal</div>
+              <div class="nav-dropdown__sub">View enrollment &amp; attendance</div>
+            </div>
+          </a>
+          <a href="admin/login.html" class="nav-dropdown__item" role="menuitem">
+            <span class="nav-dropdown__icon nav-dropdown__icon--admin"><i class="fa fa-shield-alt"></i></span>
+            <div>
+              <div class="nav-dropdown__label">Admin Portal</div>
+              <div class="nav-dropdown__sub">Manage school records</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="online_registration.html" class="nav-enroll" role="menuitem"><i class="fa fa-graduation-cap"></i> Enroll Now</a>
+    </div>
+  </div>
+</nav>
+
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Choose Your Path to Success</h1>
+                <p class="subtitle">Discover the perfect strand that matches your passion and future career</p>
+                <div class="track-tabs">
+                    <button class="track-tab active" data-track="academic">
+                        <i class="fas fa-graduation-cap"></i>
+                        Academic Track
+                    </button>
+                    <button class="track-tab" data-track="tvl">
+                        <i class="fas fa-tools"></i>
+                        TVL Track
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <section id="academic-track" class="section track-section active">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Academic Track</h2>
+                <p class="section-subtitle" data-aos="fade-up">Choose your academic pathway to college and university education</p>
+                
+                <div class="strand-grid">
+                    <!-- STEM -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3>STEM</h3>
+                        <div class="strand-content">
+                            <img src="image/stem.jpg" alt="STEM" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Science, Technology, Engineering, and Mathematics (STEM) prepares you for higher education in science and technology fields, developing strong analytical and problem-solving skills.
+                                </p>
+                                <h4>Specialized Subjects</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Pre-Calculus</li>
+                                    <li><i class="fas fa-check-circle"></i> Basic Calculus</li>
+                                    <li><i class="fas fa-check-circle"></i> General Chemistry</li>
+                                    <li><i class="fas fa-check-circle"></i> General Physics 1 & 2</li>
+                                    <li><i class="fas fa-check-circle"></i> General Biology</li>
+                                    <li><i class="fas fa-check-circle"></i> Research Project</li>
+                                </ul>
+                                <div class="career-prospects">
+                                    <h4>Career Prospects</h4>
+                                    <span class="career-tag">Doctor</span>
+                                    <span class="career-tag">Engineer</span>
+                                    <span class="career-tag">Architect</span>
+                                    <span class="career-tag">Scientist</span>
+                                    <span class="career-tag">IT Professional</span>
+                                </div>
+                                <div class="requirements">
+                                    <h4>Entry Requirements</h4>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i> Grade 10 Math: 85% or higher</li>
+                                        <li><i class="fas fa-star"></i> Grade 10 Science: 85% or higher</li>
+                                        <li><i class="fas fa-star"></i> Strong analytical skills</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HUMSS -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h3>HUMSS</h3>
+                        <div class="strand-content">
+                            <img src="image/Humss.jpg" alt="HUMSS" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Humanities and Social Sciences (HUMSS) focuses on literature, global politics, social sciences, and culture. Perfect for future leaders, communicators, and social science professionals.
+                                </p>
+                                <h4>Specialized Subjects</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Creative Writing/Malikhaing Pagsulat</li>
+                                    <li><i class="fas fa-check-circle"></i> Introduction to World Religions and Belief Systems</li>
+                                    <li><i class="fas fa-check-circle"></i> Disciplines and Ideas in Social Sciences</li>
+                                    <li><i class="fas fa-check-circle"></i> Philippine Politics and Governance</li>
+                                    <li><i class="fas fa-check-circle"></i> Community Engagement and Social Sciences</li>
+                                </ul>
+                                <div class="career-prospects">
+                                    <h4>Career Prospects</h4>
+                                    <span class="career-tag">Lawyer</span>
+                                    <span class="career-tag">Teacher</span>
+                                    <span class="career-tag">Writer</span>
+                                    <span class="career-tag">Psychologist</span>
+                                    <span class="career-tag">Journalist</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABM -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>ABM</h3>
+                        <div class="strand-content">
+                            <img src="image/abm.jpg" alt="ABM" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Accountancy, Business, and Management (ABM) focuses on basic business concepts, financial management, and corporate operations. Ideal for future entrepreneurs and business professionals.
+                                </p>
+                                <h4>Specialized Subjects</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Business Math and Financial Management</li>
+                                    <li><i class="fas fa-check-circle"></i> Fundamentals of Accountancy, Business, and Management 1 & 2</li>
+                                    <li><i class="fas fa-check-circle"></i> Business Ethics and Social Responsibility</li>
+                                    <li><i class="fas fa-check-circle"></i> Applied Economics</li>
+                                    <li><i class="fas fa-check-circle"></i> Business Finance</li>
+                                </ul>
+                                <div class="career-prospects">
+                                    <h4>Career Prospects</h4>
+                                    <span class="career-tag">Accountant</span>
+                                    <span class="career-tag">Business Manager</span>
+                                    <span class="career-tag">Financial Analyst</span>
+                                    <span class="career-tag">Entrepreneur</span>
+                                    <span class="career-tag">Marketing Manager</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GAS -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>GAS</h3>
+                        <div class="strand-content">
+                            <img src="image/gas.jpg" alt="GAS" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    General Academic Strand (GAS) provides flexible options for students who are still exploring their interests or whose chosen career path requires a more diverse academic foundation.
+                                </p>
+                                <h4>Specialized Subjects</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Humanities 1 & 2</li>
+                                    <li><i class="fas fa-check-circle"></i> Social Science 1 & 2</li>
+                                    <li><i class="fas fa-check-circle"></i> Organization and Management</li>
+                                    <li><i class="fas fa-check-circle"></i> Electives from Other Strands</li>
+                                    <li><i class="fas fa-check-circle"></i> Research Project</li>
+                                </ul>
+                                <div class="career-prospects">
+                                    <h4>Career Flexibility</h4>
+                                    <span class="career-tag">Multiple Pathways</span>
+                                    <span class="career-tag">Liberal Arts</span>
+                                    <span class="career-tag">Education</span>
+                                    <span class="career-tag">General Studies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tvl-track" class="section track-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Technical-Vocational-Livelihood (TVL) Track</h2>
+                <p class="section-subtitle" data-aos="fade-up">Gain practical skills and TESDA certifications for immediate employment opportunities</p>
+                
+                <div class="strand-grid">
+                    <!-- CSS -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Computer Systems Servicing (CSS)</h3>
+                        <div class="strand-content">
+                            <img src="image/css_logo_test__d_by_questlog_d7r1ju6-fullview.png" alt="CSS" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Learn computer hardware and software maintenance, troubleshooting, and basic networking. Get hands-on experience with computer systems and earn TESDA certification.
+                                </p>
+                                <h4>Core Competencies</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Computer Hardware Installation</li>
+                                    <li><i class="fas fa-check-circle"></i> Operating System Configuration</li>
+                                    <li><i class="fas fa-check-circle"></i> Computer Systems Maintenance</li>
+                                    <li><i class="fas fa-check-circle"></i> Basic Networking</li>
+                                </ul>
+                                <div class="certifications">
+                                    <h4>TESDA Certification</h4>
+                                    <ul>
+                                        <li><i class="fas fa-certificate"></i> NC II - Computer Systems Servicing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EIM -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Electrical Installation and Maintenance (EIM)</h3>
+                        <div class="strand-content">
+                            <img src="image/Learn-the-Basics-of-Home-Electrical-Wiring-CoyneCollege-scaled.jpeg" alt="EIM" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Master electrical wiring installation and maintenance for residential and commercial buildings. Learn safety procedures and electrical system troubleshooting.
+                                </p>
+                                <h4>Core Competencies</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Electrical Wiring Installation</li>
+                                    <li><i class="fas fa-check-circle"></i> Electrical Systems Testing</li>
+                                    <li><i class="fas fa-check-circle"></i> Safety Procedures</li>
+                                    <li><i class="fas fa-check-circle"></i> Blueprint Reading</li>
+                                </ul>
+                                <div class="certifications">
+                                    <h4>TESDA Certification</h4>
+                                    <ul>
+                                        <li><i class="fas fa-certificate"></i> NC II - Electrical Installation and Maintenance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SMAW -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Shielded Metal Arc Welding (SMAW)</h3>
+                        <div class="strand-content">
+                            <img src="image/Shielded_Metal_Arc_Welding_.jpg" alt="SMAW" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Learn professional welding techniques and metal fabrication. Develop skills in various welding positions and safety protocols.
+                                </p>
+                                <h4>Core Competencies</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Basic Welding</li>
+                                    <li><i class="fas fa-check-circle"></i> Metal Fabrication</li>
+                                    <li><i class="fas fa-check-circle"></i> Welding Safety</li>
+                                    <li><i class="fas fa-check-circle"></i> Quality Control</li>
+                                </ul>
+                                <div class="certifications">
+                                    <h4>TESDA Certification</h4>
+                                    <ul>
+                                        <li><i class="fas fa-certificate"></i> NC II - Shielded Metal Arc Welding</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Food and Beverage -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Food and Beverage Services (FBS)</h3>
+                        <div class="strand-content">
+                            <img src="image/GVSU_Badge_Food_and_Beverage.png" alt="FBS" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Learn professional food service operations, customer service, and food safety standards. Prepare for a career in the hospitality industry.
+                                </p>
+                                <h4>Core Competencies</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Food Service Operations</li>
+                                    <li><i class="fas fa-check-circle"></i> Customer Service</li>
+                                    <li><i class="fas fa-check-circle"></i> Food Safety & Sanitation</li>
+                                    <li><i class="fas fa-check-circle"></i> Beverage Preparation</li>
+                                </ul>
+                                <div class="certifications">
+                                    <h4>TESDA Certification</h4>
+                                    <ul>
+                                        <li><i class="fas fa-certificate"></i> NC II - Food and Beverage Services</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bread and Pastry -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <h3>Bread and Pastry Production (BPP)</h3>
+                        <div class="strand-content">
+                            <img src="image/jong000-180829055917-thumbnail.webp" alt="BPP" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Master the art of baking and pastry making. Learn professional techniques, recipe development, and food safety standards.
+                                </p>
+                                <h4>Core Competencies</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Basic Baking</li>
+                                    <li><i class="fas fa-check-circle"></i> Pastry Making</li>
+                                    <li><i class="fas fa-check-circle"></i> Food Safety</li>
+                                    <li><i class="fas fa-check-circle"></i> Recipe Development</li>
+                                </ul>
+                                <div class="certifications">
+                                    <h4>TESDA Certification</h4>
+                                    <ul>
+                                        <li><i class="fas fa-certificate"></i> NC II - Bread and Pastry Production</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Caregiving -->
+                    <div class="strand-card" data-aos="fade-up">
+                        <div class="strand-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Caregiving</h3>
+                        <div class="strand-content">
+                            <img src="image/2021511.jpg" alt="Caregiving" class="strand-image">
+                            <div class="strand-details">
+                                <p class="strand-description">
+                                    Develop skills in patient care, first aid, and healthcare support. Prepare for a rewarding career in the healthcare industry.
+                                </p>
+                                <h4>Core Competencies</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Patient Care</li>
+                                    <li><i class="fas fa-check-circle"></i> First Aid</li>
+                                    <li><i class="fas fa-check-circle"></i> Healthcare Support</li>
+                                    <li><i class="fas fa-check-circle"></i> Emergency Response</li>
+                                </ul>
+                                <div class="certifications">
+                                    <h4>TESDA Certification</h4>
+                                    <ul>
+                                        <li><i class="fas fa-certificate"></i> NC II - Caregiving</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navigation = document.getElementById('navigation');
+
+        if(mobileMenuBtn && navigation) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navigation.classList.toggle('active');
+            });
+        }
+
+        // Scroll-hide Navbar: hide on scroll down, show only at very top
+        const navEl = document.querySelector('nav');
+        let lastScrollY = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY <= 0) {
+                navEl.classList.remove('nav--hidden');
+            } else if (currentScrollY > lastScrollY) {
+                navEl.classList.add('nav--hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // Track tab switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const trackTabs = document.querySelectorAll('.track-tab');
+            const trackSections = document.querySelectorAll('.track-section');
+            
+            trackTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    trackTabs.forEach(t => t.classList.remove('active'));
+                    trackSections.forEach(s => s.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(`${tab.dataset.track}-track`).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+<script>
+window.addEventListener('load', () => {
+  const ls = document.getElementById('loading-screen');
+  if (ls) { ls.style.opacity = '0'; setTimeout(() => ls.style.display = 'none', 500); }
+});
+const ham  = document.getElementById('hamburger');
+const navL = document.getElementById('nav-links');
+ham.addEventListener('click', () => {
+  const open = navL.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+});
+navL.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { navL.classList.remove('open'); ham.classList.remove('open'); ham.setAttribute('aria-expanded', false); });
+});
+const portalsBtn  = document.getElementById('portalsBtn');
+const portalsMenu = document.getElementById('portalsMenu');
+const portalsDrop = document.getElementById('portalsDropdown');
+portalsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = portalsDrop.classList.toggle('open');
+  portalsBtn.setAttribute('aria-expanded', isOpen);
+});
+document.addEventListener('click', (e) => {
+  if (!portalsDrop.contains(e.target)) {
+    portalsDrop.classList.remove('open');
+    portalsBtn.setAttribute('aria-expanded', false);
+  }
+});
+const navbar = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  navbar.classList.toggle('scrolled', y > 10);
+  if (y > 100) { navbar.classList.toggle('nav-hidden', y > lastY); } else { navbar.classList.remove('nav-hidden'); }
+  lastY = y;
+}, { passive: true });
+</script>
+</body>
+</html>
+
