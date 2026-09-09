@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SCNHS Portal</title>
+    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0b1120;
+            --bg-panel: rgba(17, 24, 39, 0.75);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent: #10b981;
+            --danger: #ef4444;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass: blur(16px);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at top right, rgba(59,130,246,0.1), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(16,185,129,0.1), transparent 40%);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-wrapper {
+            width: 100%;
+            max-width: 480px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .login-card {
+            background: var(--bg-panel);
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Top line accent */
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .logo-container { text-align: center; margin-bottom: 24px; }
+        .logo-container img { width: 80px; height: 80px; border-radius: 50%; padding: 4px; background: rgba(255,255,255,0.05); }
+        
+        .login-header { text-align: center; margin-bottom: 30px; }
+        .login-header h1 { font-size: 1.7rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .login-header p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Role Tabs */
+        .tabs {
+            display: flex;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 6px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border: none;
+            background: none;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+        .tab-btn.active {
+            color: #fff;
+        }
+        .tab-indicator {
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 6px;
+            width: calc(50% - 6px);
+            background: var(--primary);
+            border-radius: 8px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .form-group { margin-bottom: 24px; position: relative; }
+        .form-group label {
+            display: block; font-size: 0.85rem; font-weight: 500;
+            color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .form-control {
+            width: 100%; padding: 14px 16px 14px 44px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            border-radius: 10px; color: #fff;
+            font-family: inherit; font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(59,130,246,0.1); }
+        .form-control::-ms-reveal, .form-control::-ms-clear { display: none; }
+        .form-group i.fa-lock, .form-group i.fa-id-card, .form-group i.fa-user-tie {
+            position: absolute; top: 41px; left: 16px;
+            color: var(--text-muted); font-size: 1.1rem;
+        }
+        
+        .password-toggle {
+            position: absolute; top: 41px; right: 16px;
+            color: var(--text-muted); font-size: 1.1rem;
+            cursor: pointer; transition: color 0.3s;
+        }
+        .password-toggle:hover { color: #fff; }
+        
+        .btn-login {
+            width: 100%; padding: 14px;
+            background: var(--primary); color: #fff;
+            border: none; border-radius: 10px;
+            font-family: inherit; font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: all 0.3s;
+            margin-top: 10px;
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+        }
+        .btn-login:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(59,130,246,0.3); }
+        
+        .alert {
+            padding: 14px 16px; border-radius: 10px; margin-bottom: 24px;
+            font-size: 0.9rem; font-weight: 500; display: none; align-items: center; gap: 10px;
+        }
+        .alert-error { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: var(--danger); display: flex; }
+
+        .back-link {
+            display: block; text-align: center; margin-top: 24px;
+            color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s;
+        }
+        .back-link:hover { color: #fff; }
+
+        /* Form Sections */
+        .role-section { display: none; animation: fadeForm 0.3s ease-out; }
+        .role-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeForm { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            
+            <div class="logo-container">
+                <img src="../image/logo.png" alt="SCNHS Logo">
+            </div>
+
+            <div class="login-header">
+                <h1 style="font-size: 1.5rem;">Santa Cruz National High School</h1>
+                <p>Student & Teacher Portal</p>
+            </div>
+
+            <div class="tabs">
+                <div class="tab-indicator" id="tabIndicator"></div>
+                <button class="tab-btn active" onclick="switchRole('student')">Student</button>
+                <button class="tab-btn" onclick="switchRole('teacher')">Teacher</button>
+            </div>
+
+            <div id="error-alert" class="alert alert-error" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="error-message"></span>
+            </div>
+
+            <form action="login_process.php" method="POST">
+                <input type="hidden" name="role" id="roleInput" value="student">
+                
+                <!-- Student Inputs -->
+                <div id="studentSection" class="role-section active">
+                    <div class="form-group">
+                        <label for="lrn">Learner Reference Number (LRN)</label>
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" id="lrn" name="lrn" class="form-control" placeholder="12-digit LRN">
+                    </div>
+                </div>
+
+                <!-- Teacher Inputs -->
+                <div id="teacherSection" class="role-section">
+                    <div class="form-group">
+                        <label for="employee_id">Employee ID</label>
+                        <i class="fas fa-user-tie"></i>
+                        <input type="text" id="employee_id" name="employee_id" class="form-control" placeholder="e.g. TCH-001">
+                    </div>
+                </div>
+
+                <!-- Shared Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+                    <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    Sign In <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <a href="../index.html" class="back-link"><i class="fas fa-home"></i> Back to Homepage</a>
+        </div>
+    </div>
+
+    <script>
+        function switchRole(role) {
+            // Update input value
+            document.getElementById('roleInput').value = role;
+            
+            // Update tabs
+            const btns = document.querySelectorAll('.tab-btn');
+            btns[0].classList.toggle('active', role === 'student');
+            btns[1].classList.toggle('active', role === 'teacher');
+            
+            // Move indicator
+            const indicator = document.getElementById('tabIndicator');
+            indicator.style.transform = role === 'student' ? 'translateX(0)' : 'translateX(100%)';
+            
+            // Toggle form fields
+            document.getElementById('studentSection').classList.toggle('active', role === 'student');
+            document.getElementById('teacherSection').classList.toggle('active', role === 'teacher');
+            
+            // Manage required attributes
+            document.getElementById('lrn').required = (role === 'student');
+            document.getElementById('employee_id').required = (role === 'teacher');
+        }
+
+        // Initialize required attributes
+        document.getElementById('lrn').required = true;
+        document.getElementById('employee_id').required = false;
+
+        // Display PHP errors via URL params
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorMsg = urlParams.get('error');
+            const role = urlParams.get('role');
+            
+            if (errorMsg) {
+                document.getElementById('error-message').innerText = errorMsg;
+                document.getElementById('error-alert').style.display = 'flex';
+            }
+            if (role === 'teacher') {
+                switchRole('teacher');
+            }
+        }
+
+        // Password Toggle
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        
+        if (togglePassword && password) {
+            togglePassword.addEventListener('click', function () {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+    </script>
+</body>
+</html>
